@@ -5,6 +5,8 @@ import org.cef.OS;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 
 public class GamePanel extends GamePanelClass {
@@ -16,12 +18,18 @@ public class GamePanel extends GamePanelClass {
                 if (OS.isLinux()) Toolkit.getDefaultToolkit().sync();
                 super.paintComponent(g);
                 calculateBackground(g);
-                parent.loop.currentScene.draw(g);
+                parent.loop.currentScene.draw(g,canvas.getSize());
             }
         };
         canvas.setBackground(Color.WHITE);
         canvas.setFocusable(true);
         canvas.setDoubleBuffered(true);
+        canvas.addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentResized(ComponentEvent e) {
+                super.componentResized(e);
+            }
+        });
         frame = new JPanel(new BorderLayout());
         frame.setBackground(Color.BLACK);
         frame.add(canvas);

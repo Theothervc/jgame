@@ -1,6 +1,6 @@
 package net.theothervc.jgame.util;
 
-public class Algorithms {
+public abstract class Algorithms {
 
     public static int euclid(int a, int b) {
         if (a==0) {

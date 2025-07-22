@@ -1,6 +1,7 @@
 package net.theothervc.jgame.game;
 
-import net.theothervc.jgame.util.Algorithms;
+import net.theothervc.jgame.components.Component;
+import net.theothervc.jgame.util.AspectRatio;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,16 +10,14 @@ import java.awt.*;
 public class Game {
     public JFrame window;
     public GameLoop loop;
-    Dimension aspectRatio = new Dimension();
+    AspectRatio aspectRatio;
 
     public Game(String title, Dimension windowSize, GamePanelClass panel,GameLoop gameLoop) {
         window = new JFrame(title);
         window.setLocationRelativeTo(null);
         window.setBackground(Color.BLACK);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        int gcf = Algorithms.euclid(windowSize.width,windowSize.height);
-        aspectRatio.width = windowSize.width/gcf;
-        aspectRatio.height = windowSize.height/gcf;
+        aspectRatio = AspectRatio.fromDimension(windowSize);
         window.setMinimumSize(new Dimension(aspectRatio.width*50,aspectRatio.height*50));
         window.setSize(windowSize);
         window.add(panel.frame);

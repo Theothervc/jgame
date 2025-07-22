@@ -15,7 +15,6 @@ public interface Scene {
     void update();
 
 
-
-    void draw(Graphics g);
+    void draw(Graphics g,Dimension screenSize);
 
 }

@@ -27,6 +27,16 @@ public class AspectRatio {
         return size;
     }
 
+    public Dimension cropToDimension(Dimension d) {
+        Dimension size;
+        if( width*d.height < height*d.width ){
+            size = new Dimension(d.width, height*d.width/width);
+        } else{
+            size = new Dimension(width*d.height/height, d.height);
+        }
+        return size;
+    }
+
     public static AspectRatio fromDimension(Dimension size) {
         int gcf = Algorithms.euclid(size.width,size.height);
         return new AspectRatio(size.width/gcf, size.height/gcf);

@@ -34,9 +34,7 @@ public class GameLoop implements Runnable {
         keyListener = newListener;
     }
 
-    public void changeScene(Scene newScene) {
-        currentScene = newScene;
-    }
+    public void changeScene(Scene newScene) {currentScene = newScene;}
 
     @Override
     public void run() {

@@ -20,7 +20,7 @@ public class GamePanelAspectLocked extends GamePanelClass {
                 if (OS.isLinux()) Toolkit.getDefaultToolkit().sync();
                 super.paintComponent(g);
                 calculateBackground(g);
-                parent.loop.currentScene.draw(g);
+                parent.loop.currentScene.draw(g,canvas.getSize());
 
             }
         };
