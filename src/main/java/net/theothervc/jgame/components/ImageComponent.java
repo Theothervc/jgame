@@ -11,5 +11,7 @@ public class ImageComponent extends Component {
         super(x,y,w,h,color);
     }
     
-    //public ImageComponent(float)
+    public ImageComponent(float x, float y, float w, float h, String path) {
+        super(x,y,w,h,path);
+    }
 }

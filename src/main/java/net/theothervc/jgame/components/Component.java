@@ -29,7 +29,7 @@ public abstract class Component {
         this.color = color;
     }
 
-    public Component(int x,int y,int w,int h,String path) {
+    public Component(float x,float y,float w,float h,String path) {
         this(x,y,w,h,Color.white);
         appearance = Images.getImageFromPath(path);
     }
